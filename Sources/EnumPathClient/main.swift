@@ -1,8 +1,20 @@
 import EnumPath
 
-let a = 17
-let b = 25
+@EnumPath
+public enum MyEnum {
+    case test0(Int)
 
-let (result, code) = #stringify(a + b)
+    case test1(Int, Int)
 
-print("The value \(result) was produced by the code \"\(code)\"")
+    case test2(a: Int, Int)
+
+    case test3(x: String)
+
+    case test4, test5(x: String, y: String)
+}
+
+var value: MyEnum = .test0(0)
+
+value.test2 = (1, 1)
+
+print(value, value.isTest4)

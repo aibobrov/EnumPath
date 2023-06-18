@@ -1,0 +1,8 @@
+--exclude frameworks
+--commas always
+--ifdef no-indent
+--comments ignore
+--stripunusedargs closure-only
+--disable yodaConditions,redundantSelf
+--commas inline
+--modifierorder public,open,internal,private,static,final,override,lazy,weak
