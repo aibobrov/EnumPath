@@ -55,7 +55,7 @@ public struct EnumPathMacro: MemberMacro {
             }.joined(separator: ", ")
         }
         return """
-        \(inlinableDeclIfNeeded(accessControl))\(accessControl)var \(caseElement.identifier): \(associatedValue.typeDecl())? {
+        \(inlinableDeclIfNeeded(accessControl)) \(accessControl) var \(caseElement.identifier): \(associatedValue.typeDecl())? {
             get {
                 switch self {
                 case let .\(caseElement.identifier)(\(raw: argumentsString)):
@@ -78,7 +78,7 @@ public struct EnumPathMacro: MemberMacro {
         with accessControl: TokenSyntax
     ) -> DeclSyntax {
         """
-        \(inlinableDeclIfNeeded(accessControl))\(accessControl)var is\(raw: caseElement.identifier.text.capitalized): Bool {
+        \(inlinableDeclIfNeeded(accessControl)) \(accessControl) var is\(raw: caseElement.identifier.text.capitalized): Bool {
             get {
                 switch self {
                 case .\(caseElement.identifier):

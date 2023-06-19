@@ -1,3 +1,37 @@
+import SwiftUI
+
+@available(macOS 11.0, *)
+struct EnumPathApp: App {
+    @State private var model: MyEnum = .test0(0)
+    var body: some Scene {
+        WindowGroup {
+            
+        }
+    }
+}
+
+struct ContentView: View {
+    @State private var model: MyEnum = .test0(0)
+    
+    var body: some View {
+        if let counter = Binding($model.test0) {
+            DetailView(counter: counter)
+        }
+    }
+}
+
+struct DetailView: View {
+    @Binding var counter: Int
+    var body: some View {
+        Stepper(value: $counter) {
+            Text("Count")
+        }
+//        Button("Count: \(counter)") {
+//            counter += 1
+//        }
+    }
+}
+
 import EnumPath
 
 @EnumPath
