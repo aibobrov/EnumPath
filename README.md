@@ -59,7 +59,7 @@ enum Model {
         }
     }
 
-    var label: String {
+    var label: String? {
         get {
             switch self {
             case let .label(label):
