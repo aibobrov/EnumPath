@@ -11,6 +11,7 @@ public struct EnumPathMacro: MemberMacro {
         in context: Context
     ) throws -> [DeclSyntax] {
         guard let enumDecl = declaration.as(EnumDeclSyntax.self) else {
+            context.diagnose(EnumPathDiagnostic.requiresEnum.diagnose(at: declaration))
             return []
         }
 
